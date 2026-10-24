@@ -1,0 +1,168 @@
+:root {
+  --tinta: #12121a;
+  --azul: #2f5bff;
+  --amarelo: #ffd60a;
+  --fundo: #f5f6fa;
+  --branco: #ffffff;
+  --cinza: #6b7080;
+  --borda: #e3e5ee;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--tinta);
+  background: var(--fundo);
+  line-height: 1.55;
+}
+
+h1, h2, h3, .logo { font-family: "Space Grotesk", system-ui, sans-serif; line-height: 1.15; }
+a { color: inherit; }
+ul { list-style: none; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+
+/* ---------- Header ---------- */
+.topo { position: sticky; top: 0; z-index: 10; background: var(--branco); border-bottom: 1px solid var(--borda); }
+.topo__barra { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1rem 6%; }
+.logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+.logo span { color: var(--azul); }
+.menu { display: flex; gap: 1.75rem; }
+.menu a { text-decoration: none; font-weight: 500; color: var(--cinza); }
+.menu a:hover { color: var(--tinta); }
+
+/* ---------- Botões ---------- */
+.botoes { display: flex; flex-wrap: wrap; gap: .6rem; }
+.botoes--centro { justify-content: center; }
+.botao {
+  display: inline-block; padding: .75rem 1.4rem; border-radius: 999px;
+  background: var(--amarelo); color: var(--tinta); font: inherit; font-weight: 700;
+  text-decoration: none; text-align: center; cursor: pointer;
+  border: 2px solid var(--amarelo);
+}
+.botao:hover { filter: brightness(.95); }
+.botao--cheio { background: var(--tinta); color: #fff; border-color: var(--tinta); }
+.botao--cheio:hover { background: var(--azul); border-color: var(--azul); filter: none; }
+.botao--vazio-escuro { background: transparent; color: var(--tinta); border-color: var(--tinta); }
+.botao--vazio-escuro:hover { background: var(--tinta); color: #fff; filter: none; }
+
+/* ---------- Home ---------- */
+.destaque { padding: 4rem 6%; color: #fff; background: linear-gradient(120deg, #12121a 0%, #1c2a7a 100%); }
+.destaque__texto { max-width: 34rem; }
+.selo {
+  display: inline-block; background: var(--amarelo); color: var(--tinta);
+  font-weight: 700; font-size: .85rem; padding: .2rem .8rem; border-radius: 999px; margin-bottom: 1rem;
+}
+.destaque h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom: 1rem; }
+.destaque p:not(.selo) { color: #cdd3ff; margin-bottom: 1.75rem; }
+
+.secao { padding: 4rem 6%; max-width: 1200px; margin: 0 auto; }
+.secao h2 { font-size: 2rem; }
+.secao__sub { color: var(--cinza); margin: .4rem 0 2rem; }
+
+.produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+.produto {
+  position: relative; background: var(--branco); border: 1px solid var(--borda);
+  border-radius: 16px; padding: 1.25rem; display: flex; flex-direction: column;
+}
+.produto:hover { border-color: var(--azul); }
+.produto__link { text-decoration: none; }
+.produto__link:hover h3 { color: var(--azul); }
+.produto img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 1rem; background: var(--fundo); border-radius: 12px; padding: .75rem; }
+.produto h3 { font-size: 1.2rem; }
+.specs { color: var(--cinza); font-size: .88rem; margin: .2rem 0 .75rem; }
+.preco-antigo { color: var(--cinza); text-decoration: line-through; font-size: .85rem; }
+.preco { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.6rem; margin-bottom: 1rem; }
+.produto .botoes { margin-top: auto; }
+.produto .botao { flex: 1; padding-inline: .8rem; }
+.etiqueta {
+  position: absolute; top: 1rem; left: 1rem; z-index: 1;
+  background: #e5384f; color: #fff; font-size: .8rem; font-weight: 700;
+  padding: .15rem .6rem; border-radius: 999px;
+}
+.etiqueta--nova { background: var(--azul); }
+
+/* ---------- Página do produto ---------- */
+.detalhe { max-width: 1100px; margin: 0 auto; padding: 2rem 6% 4rem; }
+.migalhas { font-size: .9rem; color: var(--cinza); margin-bottom: 1.5rem; }
+.migalhas a { text-decoration: none; }
+.migalhas a:hover { color: var(--azul); text-decoration: underline; }
+.migalhas span { color: var(--tinta); font-weight: 600; }
+
+.detalhe__topo { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.detalhe__topo img {
+  width: 100%; max-height: 480px; object-fit: contain;
+  background: var(--branco); border: 1px solid var(--borda); border-radius: 20px; padding: 2rem;
+}
+.detalhe h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: .75rem; }
+.detalhe__desc { color: var(--cinza); margin-bottom: 1.25rem; }
+.destaques { margin-bottom: 1.5rem; }
+.destaques li { padding-left: 1.4rem; margin-bottom: .35rem; position: relative; }
+.destaques li::before { content: ""; position: absolute; left: 0; top: .55em; width: .6rem; height: .6rem; border-radius: 50%; background: var(--amarelo); }
+.preco--grande { font-size: 2.2rem; margin-bottom: .15rem; }
+.parcela { color: var(--cinza); font-size: .9rem; margin-bottom: 1.25rem; }
+
+.detalhe__specs { margin-top: 3.5rem; }
+.detalhe__specs h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+.tabela-wrap { overflow-x: auto; border: 1px solid var(--borda); border-radius: 16px; background: var(--branco); }
+.tabela { width: 100%; border-collapse: collapse; }
+.tabela th, .tabela td { padding: .9rem 1.25rem; text-align: left; border-bottom: 1px solid var(--borda); }
+.tabela th { color: var(--cinza); font-weight: 500; width: 40%; }
+.tabela tr:last-child th, .tabela tr:last-child td { border-bottom: 0; }
+.tabela tr:nth-child(even) { background: var(--fundo); }
+
+/* ---------- Página de compra ---------- */
+.compra { max-width: 760px; margin: 0 auto; padding: 2.5rem 6% 4rem; }
+.compra h1 { font-size: 2rem; margin-bottom: 1.5rem; }
+
+.vazio { background: var(--branco); border: 1px dashed var(--cinza); border-radius: 16px; padding: 1.5rem; }
+.vazio__lista { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+
+/* Mostra só o produto que veio no link (compra.html#nome-do-produto) */
+.resumo { display: none; }
+.resumo:target {
+  display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem; align-items: center;
+  background: var(--branco); border: 1px solid var(--borda); border-radius: 16px; padding: 1.25rem;
+}
+.resumo img { width: 100%; height: 160px; object-fit: contain; background: var(--fundo); border-radius: 12px; padding: .5rem; }
+.resumo h2 { font-size: 1.4rem; }
+.resumo .preco { margin-bottom: .25rem; }
+.link { color: var(--azul); font-weight: 600; }
+
+.dados { display: none; margin-top: 2rem; }
+.compra:has(.resumo:target) .dados { display: block; }
+.compra:has(.resumo:target) .vazio { display: none; }
+.dados h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+.dados label { display: block; font-weight: 600; margin: 1rem 0 .3rem; }
+.dados input[type="text"], .dados input[type="email"] {
+  width: 100%; padding: .8rem 1rem; border: 1px solid var(--borda); border-radius: 10px; font: inherit; background: var(--branco);
+}
+.dados fieldset { border: 1px solid var(--borda); border-radius: 12px; padding: .5rem 1rem 1rem; margin: 1.5rem 0; background: var(--branco); }
+.dados legend { font-weight: 600; padding: 0 .4rem; }
+.dados .opcao { font-weight: 400; margin: .5rem 0 0; }
+.dados .opcao input { margin-right: .5rem; accent-color: var(--azul); }
+
+/* ---------- Pedido confirmado ---------- */
+.pedido { max-width: 640px; margin: 0 auto; padding: 5rem 6%; text-align: center; }
+.pedido h1 { font-size: 2.4rem; margin-bottom: .75rem; }
+.pedido p:not(.selo) { color: var(--cinza); margin-bottom: 2rem; }
+
+/* ---------- Footer ---------- */
+.rodape { background: var(--tinta); color: #c9ccd8; padding: 3rem 6% 1.5rem; margin-top: 2rem; }
+.rodape__colunas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+.logo--rodape { color: #fff; margin-bottom: .5rem; }
+.rodape h2 { font-size: 1rem; color: #fff; margin-bottom: .6rem; }
+.rodape li { margin-bottom: .3rem; }
+.rodape__copy { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.25rem; border-top: 1px solid #2c2f3d; font-size: .85rem; color: #8a8fa3; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 800px) {
+  .detalhe__topo { grid-template-columns: 1fr; gap: 1.5rem; }
+  .resumo:target { grid-template-columns: 100px 1fr; }
+  .menu { gap: 1rem; font-size: .9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
